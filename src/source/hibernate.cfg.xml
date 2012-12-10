@@ -15,5 +15,18 @@
       <property name="show_sql">true</property>
       <property name="hibernate.hbm2ddl.auto">update</property>
       <property name="hibernate.id.new_generator_mappings">true</property>
+
+      <mapping class="com.bsuir.matveyenka.entity.Basket"/>
+      <mapping class="com.bsuir.matveyenka.entity.Size"/>
+      <mapping class="com.bsuir.matveyenka.entity.Client"/>
+      <mapping class="com.bsuir.matveyenka.entity.Equipment"/>
+      <mapping class="com.bsuir.matveyenka.entity.Factory"/>
+      <mapping class="com.bsuir.matveyenka.entity.Order"/>
+      <mapping class="com.bsuir.matveyenka.entity.Personnel"/>
+      <mapping class="com.bsuir.matveyenka.entity.Product"/>
+      <mapping class="com.bsuir.matveyenka.entity.Production"/>
+      <mapping class="com.bsuir.matveyenka.entity.ProductionRW"/>
+      <mapping class="com.bsuir.matveyenka.entity.Profit"/>
+      <mapping class="com.bsuir.matveyenka.entity.RawMaterial"/>
   </session-factory>
 </hibernate-configuration>

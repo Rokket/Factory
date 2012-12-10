@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts-config PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+        "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+    <form-beans>
+        <form-bean name="sizeForm" type="com.bsuir.matveyenka.presentation.form.SizeForm" />
+    </form-beans>
+
+    <action-mappings>
+        <action path="/SizeAction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="sizeForm" parameter="method" cancellable="true">
+            <forward name="saveSize" path="/jsp/size.jsp" />
+        </action>
+    </action-mappings>
+
+    <message-resources parameter="message" key="bundleMessages"/>
+
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+                      value="/WEB-INF/applicationContext.xml" />
+    </plug-in>
+
+</struts-config>

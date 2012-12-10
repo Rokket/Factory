@@ -1,8 +1,12 @@
 package com.bsuir.matveyenka.dao.impl;
 
 import com.bsuir.matveyenka.dao.GenericDao;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 /**
  * User: User
@@ -12,14 +16,11 @@ public class GenericDaoImpl<ENTITY> implements GenericDao<ENTITY> {
 
     private Class<ENTITY> type;
 
+    @Autowired
     private SessionFactory sessionFactory;
 
     public GenericDaoImpl(Class<ENTITY> type) {
         this.type = type;
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
     }
 
     @Override
@@ -53,5 +54,15 @@ public class GenericDaoImpl<ENTITY> implements GenericDao<ENTITY> {
         session.beginTransaction();
         session.delete(entity);
         session.getTransaction().commit();
+    }
+
+    @Override
+    public List<ENTITY> getList() {
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        Criteria criteria = session.createCriteria(type);
+        List<ENTITY> list = criteria.list();
+        session.getTransaction().commit();
+        return list;
     }
 }
