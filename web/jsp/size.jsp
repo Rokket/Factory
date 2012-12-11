@@ -12,9 +12,9 @@
     <body>
         <html:form action="/SizeAction.do?method=saveSize" method="POST">
             <bean:message bundle="bundleMessages" key="sizeForm.id"/><br />
-            <logic:iterate name="sizeForm" property="sizes" id="size">
-                <html:text name="sizeForm" property="size.id" value="${size.id}"/>
-                <html:text name="sizeForm" property="size.name" value="${size.name}"/><br />
+            <logic:iterate name="sizeForm" property="sizes" id="size" indexId="index">
+                <html:text name="sizeForm" property="sizes[${index}]" value="${size.id}"/>
+                <html:text name="sizeForm" property="sizes[${index}]" value="${size.name}"/><br />
             </logic:iterate>
             <html:submit value="SUBMIT"/>
         </html:form>

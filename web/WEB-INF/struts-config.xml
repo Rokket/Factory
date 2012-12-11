@@ -8,6 +8,7 @@
 
     <form-beans>
         <form-bean name="sizeForm" type="com.bsuir.matveyenka.presentation.form.SizeForm" />
+        <form-bean name="profitForm" type="com.bsuir.matveyenka.presentation.form.ProfitForm" />
     </form-beans>
 
     <action-mappings>
@@ -16,9 +17,15 @@
                 name="sizeForm" parameter="method" cancellable="true">
             <forward name="saveSize" path="/jsp/size.jsp" />
         </action>
+        <action path="/ProfitAction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="profitForm" parameter="method" cancellable="true">
+            <forward name="viewProfit" path="/jsp/profit.jsp" />
+        </action>
     </action-mappings>
 
     <message-resources parameter="message" key="bundleMessages"/>
+    <message-resources parameter="MessageResources"/>
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"
