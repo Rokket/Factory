@@ -7,25 +7,36 @@
 <struts-config>
 
     <form-beans>
-        <form-bean name="sizeForm" type="com.bsuir.matveyenka.presentation.form.SizeForm" />
         <form-bean name="profitForm" type="com.bsuir.matveyenka.presentation.form.ProfitForm" />
+        <form-bean name="mainForm" type="com.bsuir.matveyenka.presentation.form.MainForm" />
     </form-beans>
 
     <action-mappings>
-        <action path="/SizeAction"
-                type="org.springframework.web.struts.DelegatingActionProxy"
-                name="sizeForm" parameter="method" cancellable="true">
-            <forward name="saveSize" path="/jsp/size.jsp" />
-        </action>
         <action path="/ProfitAction"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="profitForm" parameter="method" cancellable="true">
-            <forward name="viewProfit" path="/jsp/profit.jsp" />
+        </action>
+        <action path="/MainAction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="mainForm" parameter="method" cancellable="true">
+            <forward name="viewProfit" path="profit" />
+            <forward name="viewOrders" path="orders" />
+            <forward name="viewProducts" path="products" />
+            <forward name="viewClients" path="clients" />
+            <forward name="viewEquipments" path="equipments" />
+            <forward name="viewFactories" path="factories" />
+            <forward name="viewPersonnel" path="personnel" />
         </action>
     </action-mappings>
 
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
     <message-resources parameter="message" key="bundleMessages"/>
     <message-resources parameter="MessageResources"/>
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin">
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+    </plug-in>
 
     <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
         <set-property property="contextConfigLocation"

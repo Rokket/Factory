@@ -35,6 +35,9 @@ public class AbstractFactoryDao {
     private ProfitDao profitDao;
 
     @Autowired
+    private ProductDao productDao;
+
+    @Autowired
     private ProductionDao productionDao;
 
     @Autowired
@@ -88,5 +91,9 @@ public class AbstractFactoryDao {
 
     public SizeDao getSizeDao() {
         return sizeDao;
+    }
+
+    public ProductDao getProductDao() {
+        return productDao;
     }
 }

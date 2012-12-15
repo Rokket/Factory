@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+        "http://struts.apache.org/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+    <definition name="layout" path="/jsp/layout/base.jsp">
+        <put name="header" value="/jsp/tiles/header.jsp" />
+        <put name="content" />
+    </definition>
+    <definition name="profit" extends="layout">
+        <put name="content" value="/jsp/content/profit.jsp" />
+    </definition>
+    <definition name="orders" extends="layout">
+        <put name="content" value="/jsp/content/orders.jsp" />
+    </definition>
+    <definition name="products" extends="layout">
+        <put name="content" value="/jsp/content/products.jsp" />
+    </definition>
+    <definition name="clients" extends="layout">
+        <put name="content" value="/jsp/content/clients.jsp" />
+    </definition>
+    <definition name="equipments" extends="layout">
+        <put name="content" value="/jsp/content/equipments.jsp" />
+    </definition>
+    <definition name="factories" extends="layout">
+        <put name="content" value="/jsp/content/factories.jsp" />
+    </definition>
+    <definition name="personnel" extends="layout">
+        <put name="content" value="/jsp/content/personnel.jsp" />
+    </definition>
+</tiles-definitions>
+

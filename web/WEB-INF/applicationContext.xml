@@ -9,8 +9,8 @@
         <property name="configLocation" value="classpath:hibernate.cfg.xml" />
     </bean>
 
-    <bean name="/SizeAction" class="com.bsuir.matveyenka.presentation.action.SizeAction"/>
     <bean name="/ProfitAction" class="com.bsuir.matveyenka.presentation.action.ProfitAction"/>
+    <bean name="/MainAction" class="com.bsuir.matveyenka.presentation.action.MainAction"/>
 
     <!-- Activates scanning of @Autowired -->
     <context:annotation-config />
