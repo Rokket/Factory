@@ -25,19 +25,19 @@ public class MainForm extends ActionForm {
 
     private List<Personnel> personnel;
 
-    private Order order;
+    private Order order = new Order();
 
-    private Profit profit;
+    private Profit profit = new Profit();
 
-    private Product product;
+    private Product product = new Product();
 
-    private Client client;
+    private Client client = new Client();
 
-    private Equipment equipment;
+    private Equipment equipment = new Equipment();
 
-    private Factory factory;
+    private Factory factory = new Factory();
 
-    private Personnel person;
+    private Personnel person = new Personnel();
 
     public List<Order> getOrders() {
         return orders;

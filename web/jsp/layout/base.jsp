@@ -14,10 +14,10 @@
     </head>
     <body>
         <div class="container">
-            <div id="header">
+            <div id="header" class="container">
                 <tiles:insert attribute="header"  />
             </div>
-            <div id="content">
+            <div id="content" class="container">
                 <tiles:insert attribute="content" />
             </div>
         </div>

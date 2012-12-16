@@ -9,6 +9,7 @@
     <form-beans>
         <form-bean name="profitForm" type="com.bsuir.matveyenka.presentation.form.ProfitForm" />
         <form-bean name="mainForm" type="com.bsuir.matveyenka.presentation.form.MainForm" />
+        <form-bean name="languageForm" type="com.bsuir.matveyenka.presentation.form.LanguageForm" />
     </form-beans>
 
     <action-mappings>
@@ -19,6 +20,17 @@
         <action path="/MainAction"
                 type="org.springframework.web.struts.DelegatingActionProxy"
                 name="mainForm" parameter="method" cancellable="true">
+            <forward name="viewProfit" path="profit" />
+            <forward name="viewOrders" path="orders" />
+            <forward name="viewProducts" path="products" />
+            <forward name="viewClients" path="clients" />
+            <forward name="viewEquipments" path="equipments" />
+            <forward name="viewFactories" path="factories" />
+            <forward name="viewPersonnel" path="personnel" />
+        </action>
+        <action path="/LanguageAction"
+                type="org.springframework.web.struts.DelegatingActionProxy"
+                name="languageForm">
             <forward name="viewProfit" path="profit" />
             <forward name="viewOrders" path="orders" />
             <forward name="viewProducts" path="products" />

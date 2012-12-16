@@ -9,22 +9,28 @@
     <html:form action="/MainAction.do?method=viewProfit" method="POST">
         <thead>
         <tr>
-            <td>Произведено</td>
-            <td>Заказано</td>
-            <td>Дата</td>
+            <td>
+                <bean:message bundle="bundleMessages" key="profit.produced" />
+            </td>
+            <td>
+                <bean:message bundle="bundleMessages" key="profit.ordered" />
+            </td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.date" />
+            </td>
         </tr>
         </thead>
         <tbody>
         <logic:iterate name="mainForm" property="profits" id="profit">
             <tr>
                 <td>
-                    <bean:write name="profit" property="produced"/>
+                    <bean:write name="profit" property="produced" />
                 </td>
                 <td>
-                    <bean:write name="profit" property="ordered"/>
+                    <bean:write name="profit" property="ordered" />
                 </td>
                 <td>
-                    <bean:write name="profit" format="dd/MM/yyyy" property="date"/>
+                    <bean:write name="profit" format="dd/MM/yyyy" property="date" />
                 </td>
             </tr>
         </logic:iterate>

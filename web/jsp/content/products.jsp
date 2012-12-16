@@ -9,9 +9,15 @@
     <html:form action="/MainAction.do?method=viewProfit" method="POST">
         <thead>
         <tr>
-            <td>Название</td>
-            <td>Стоимость</td>
-            <td>Размер</td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.name" />
+            </td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.cost" />
+            </td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.size" />
+            </td>
         </tr>
         </thead>
         <tbody>

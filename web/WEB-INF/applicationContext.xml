@@ -11,6 +11,7 @@
 
     <bean name="/ProfitAction" class="com.bsuir.matveyenka.presentation.action.ProfitAction"/>
     <bean name="/MainAction" class="com.bsuir.matveyenka.presentation.action.MainAction"/>
+    <bean name="/LanguageAction" class="com.bsuir.matveyenka.presentation.action.LanguageAction"/>
 
     <!-- Activates scanning of @Autowired -->
     <context:annotation-config />

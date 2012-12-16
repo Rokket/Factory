@@ -1,6 +1,9 @@
 package com.bsuir.matveyenka.presentation.action;
 
+import com.bsuir.matveyenka.dao.EquipmentDao;
 import com.bsuir.matveyenka.dao.factory.AbstractFactoryDao;
+import com.bsuir.matveyenka.entity.Equipment;
+import com.bsuir.matveyenka.entity.Factory;
 import com.bsuir.matveyenka.presentation.form.MainForm;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -63,6 +66,10 @@ public class MainAction extends DispatchAction {
             throws IOException, ServletException {
         MainForm mainForm = (MainForm) form;
         mainForm.setEquipments(abstractFactoryDao.getEquipmentDao().getList());
+        mainForm.setFactories(abstractFactoryDao.getFactoryDao().getList());
+        Equipment equipment = new Equipment();
+        equipment.setFactory(new Factory());
+        mainForm.setEquipment(equipment);
 
         return mapping.findForward("viewEquipments");
     }
@@ -83,5 +90,40 @@ public class MainAction extends DispatchAction {
         mainForm.setPersonnel(abstractFactoryDao.getPersonnelDao().getList());
 
         return mapping.findForward("viewPersonnel");
+    }
+
+    public ActionForward addEquipment(ActionMapping mapping, ActionForm form,
+                                       HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        MainForm mainForm = (MainForm) form;
+        Equipment equipment = mainForm.getEquipment();
+        if (equipment.getId() == null) {
+            equipment.setFactory(abstractFactoryDao.getFactoryDao().get(equipment.getFactory().getId()));
+            abstractFactoryDao.getEquipmentDao().save(equipment);
+            equipment = new Equipment();
+            equipment.setFactory(new Factory());
+            mainForm.setEquipment(equipment);
+        }
+        mainForm.setEquipments(abstractFactoryDao.getEquipmentDao().getList());
+
+        return mapping.findForward("viewEquipments");
+    }
+
+    public ActionForward deleteEquipment(ActionMapping mapping, ActionForm form,
+                                      HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        EquipmentDao dao = abstractFactoryDao.getEquipmentDao();
+        MainForm mainForm = (MainForm) form;
+        Equipment equipment = mainForm.getEquipment();
+        equipment.setFactory(null);
+        if (equipment.getId() != null) {
+            dao.remove(equipment);
+            equipment = new Equipment();
+            equipment.setFactory(new Factory());
+            mainForm.setEquipment(equipment);
+        }
+        mainForm.setEquipments(abstractFactoryDao.getEquipmentDao().getList());
+
+        return mapping.findForward("viewEquipments");
     }
 }

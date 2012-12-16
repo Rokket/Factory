@@ -1,6 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <%@taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
 <%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+
 <div class="container">
     <html:link href="/MainAction.do?method=viewProfit">
         <button class="btn">
@@ -37,4 +38,12 @@
             <bean:message bundle="bundleMessages" key="button.products"/>
         </button>
     </html:link>
+    <div style="float: right">
+        <html:link action="/LanguageAction.do?language=ru">
+            Русский
+        </html:link>
+        <html:link action="/LanguageAction.do?language=en">
+            English
+        </html:link>
+    </div>
 </div>

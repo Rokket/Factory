@@ -6,11 +6,15 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <table class="table table-bordered">
-    <html:form action="/MainAction.do?method=viewProfit" method="POST">
+    <html:form action="/MainAction.do?method=addEquipment" method="POST">
         <thead>
         <tr>
-            <td>Название</td>
-            <td>Фабрика</td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.name" />
+            </td>
+            <td>
+                <bean:message bundle="bundleMessages" key="label.factory" />
+            </td>
         </tr>
         </thead>
         <tbody>
@@ -22,8 +26,32 @@
                 <td>
                     <bean:write name="equipment" property="factory.name"/>
                 </td>
+                <td>
+                    <html:link action="/MainAction.do?method=deleteEquipment&equipment.id=${equipment.id}">
+                        <button>X</button>
+                    </html:link>
+                </td>
             </tr>
         </logic:iterate>
+        <tr>
+            <td>
+                <html:text name="mainForm" property="equipment.name" />
+            </td>
+            <td>
+                <html:select name="mainForm" property="equipment.factory.id">
+                    <html:option value="0">
+                        <bean:message bundle="bundleMessages" key="label.choose.factory" />
+                    </html:option>
+                    <html:optionsCollection name="mainForm" property="factories" label="name" value="id"/>
+                </html:select>
+            </td>
+            <td>
+                <html:submit>
+                    <bean:message bundle="bundleMessages" key="button.add" />
+                </html:submit>
+            </td>
+        </tr>
+
         </tbody>
     </html:form>
 </table>
